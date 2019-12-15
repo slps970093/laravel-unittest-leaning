@@ -15,8 +15,10 @@ env:
 before_install:
   # Prepare MySQL schema
   - mysql -e "SET PASSWORD = PASSWORD('password');"
+  - mysql -e 'CREATE DATABASE laravel;'
 
 install:
-  - composer install --prefer-dist --optmize-autoloader --quiet
+  - composer install --prefer-dist --quiet
+  -
 
 script: phpunit -c phpunit.xml --coverage-text

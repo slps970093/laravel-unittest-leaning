@@ -12,6 +12,8 @@ sudo: false
 env:
   - APP_DEBUG=false
   - DB_PASSWORD=password
+
+
 before_install:
   # Prepare MySQL schema
   - mysql -e 'CREATE DATABASE laravel;'
@@ -20,6 +22,6 @@ before_install:
 
 install:
   - composer install --prefer-dist --quiet
-  -
+  - php artisan migrate
 
 script: phpunit -c phpunit.xml --coverage-text

@@ -22,6 +22,6 @@ before_install:
 
 install:
   - composer install --prefer-dist --quiet
-  - php artisan migrate
+  - php artisan migrate -y
 
 script: phpunit -c phpunit.xml --coverage-text

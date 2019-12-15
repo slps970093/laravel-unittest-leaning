@@ -14,8 +14,9 @@ env:
   - DB_PASSWORD=password
 before_install:
   # Prepare MySQL schema
-  - mysql -e "SET PASSWORD = PASSWORD('password');"
   - mysql -e 'CREATE DATABASE laravel;'
+  - mysql -e "SET PASSWORD = PASSWORD('password');"
+
 
 install:
   - composer install --prefer-dist --quiet

@@ -21,6 +21,7 @@ before_install:
 
 
 install:
+  - cp .env.travis .env
   - composer install --prefer-dist --quiet
   - php artisan migrate -y
 

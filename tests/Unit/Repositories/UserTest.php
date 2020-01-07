@@ -39,8 +39,7 @@ class UserTest extends TestCase
         $res = $this->repo->append($appendData);
         $afterData = $this->repo
             ->getDataByPrimaryKey($res->id)
-            ->only(['name','email','password'])
-            ->toArray();
+            ->only(['name','email','password']);
         $this->assertEquals($appendData,$afterData);
     }
 
@@ -61,8 +60,7 @@ class UserTest extends TestCase
         $res = $this->repo->append($appendData);
         $this->repo->modifyByPrimaryKey(['password' => $afterData['password']],$res->id);
         $dbResult = $this->repo->getDataByPrimaryKey($res->id)
-            ->only(['name','email','password'])
-            ->toArray();
+            ->only(['name','email','password']);
         $this->assertEquals($afterData,$dbResult);
     }
 }

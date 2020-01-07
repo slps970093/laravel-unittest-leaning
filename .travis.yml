@@ -21,8 +21,8 @@ before_install:
 
 
 install:
-  - cp .env.travis .env
+  - cp .env.example .env.testing
   - composer install --prefer-dist --quiet
-  - php artisan migrate
+  - php artisan migrate --env=testing
 
 script: phpunit -c phpunit.xml --coverage-text

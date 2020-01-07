@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 use Tests\CreatesApplication;
 use App\Repositories\User as UserRepo;
 
-class User extends TestCase
+class UserTest extends TestCase
 {
 
     use CreatesApplication;

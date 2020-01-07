@@ -21,7 +21,6 @@ before_install:
 
 
 install:
-  - cp .env.example .env.testing
   - composer install --prefer-dist --quiet
   - php artisan migrate --env=testing
 

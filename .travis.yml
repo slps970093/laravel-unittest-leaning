@@ -17,6 +17,7 @@ env:
 before_install:
   # Prepare MySQL schema
   - mysql -e 'CREATE DATABASE laravel;'
+  - mysql -e 'SHOW DATABASES;'
   - mysql -e "SET PASSWORD = PASSWORD('password');"
 
 

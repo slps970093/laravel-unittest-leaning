@@ -44,4 +44,25 @@ class User extends TestCase
         $this->assertEquals($appendData,$afterData);
     }
 
+    /**
+     * @test
+     */
+    public function update() {
+        $appendData = [
+            'name' => '肥雨',
+            'email' => 'oops@gmail.com',
+            'password' => '66666'
+        ];
+        $afterData = [
+            'name' => '肥雨',
+            'email' => 'oops@gmail.com',
+            'password' => '66666'
+        ];
+        $res = $this->repo->append($appendData);
+        $this->repo->modifyByPrimaryKey(['password' => $afterData['password']],$res->id);
+        $dbResult = $this->repo->getDataByPrimaryKey($res->id)
+            ->only(['name','email','password'])
+            ->toArray();
+        $this->assertEquals($afterData,$dbResult);
+    }
 }
